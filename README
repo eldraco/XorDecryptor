@@ -1,0 +1,29 @@
+XorDecryptor.py
+==============
+XorDecryptor.py takes an encrypted file with xor and tries all the possible 1 byte-long hexa values as a key. Furthermore, on each output it verifies if the result is english text.
+This is a quick modifcation of some already working python code.
+
+Original Code
+-------------
+The detectEnglish library was taken from http://inventwithpython.com/detectEnglish.py
+The xor code was taken from https://samsclass.info/124/proj14/p13-xor.htm
+
+Put together by eldraco@gmail.com with some minor modifications
+
+The dict2.txt file is an english dictionary. You can change this to detect any other language.
+The xor.py code is not needed by the XorDecryptor. It is just for you to test it.
+
+Example usage:
+--------------
+
+1- create a english text:
+echo "This is an example english text" > example
+
+2- Xor it with the letter 'm' as key
+./xor.py example example.xor m
+
+3- Now lets try to automatically detect which was the key, and if it was english.
+./XorDecryptor.py example.xor
+English detected with key: 109 (m): This is an example english text
+
+There is an example already included that is called test.xor.
